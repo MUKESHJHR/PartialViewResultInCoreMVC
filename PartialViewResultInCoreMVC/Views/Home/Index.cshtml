@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<div id="SomeDiv" class="text-left">
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var rawData = { 'Product': '10' };
+
+        $.ajax({
+            type: "GET",
+            url: "/Home/Details/",
+            data: rawData,
+            success: function (viewHTML) {
+                $("#SomeDiv").html(viewHTML);
+            },
+            error: function (errorData) {
+                onError(errorData);
+            }
+        });
+    });
+</script>
+
